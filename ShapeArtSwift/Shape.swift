@@ -90,16 +90,8 @@ class Shape: UIView {
 
   override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
     guard let touch = touches.first else { return }
-    let touchPoint = touch.location(in: self)
 
     if isResizing {
-      let p1 = touchPoint
-      let p2 = bounds.origin
-
-      let xDist = p2.x - p1.x
-      let yDist = p2.y - p1.y
-      let distance = Int(sqrt((xDist * xDist) + (yDist * yDist)))
-
       let touchPoint = touch.location(in: self.superview)
       let previousPoint = touch.previousLocation(in: self.superview)
 
